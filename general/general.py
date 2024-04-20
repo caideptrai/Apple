@@ -21,9 +21,17 @@ def index():
             'name': user.name,
             'budget': user.budget
         }
+    else:
+        # Nếu có, cập nhật thông tin người dùng từ cơ sở dữ liệu
+        curr_user = User.query.get(session['user_id'])
+        session['current_user'] = {
+            'username': curr_user.username,
+            'name': curr_user.name,
+            'budget': curr_user.budget
+        }
 
+    # Cập nhật thông tin giỏ hàng của người dùng
     curr_user = User.query.get(session['user_id'])
-
     cart_length = Orders.query.filter_by(customer_id=curr_user.id).count()
     session['subtotal'] = 0
     session['cart'] = []
@@ -37,10 +45,5 @@ def index():
         session['subtotal'] += order.game.price
 
     session['cart_length'] = cart_length
-    session['current_user'] = {
-        'username': curr_user.username,
-        'name': curr_user.name,
-        'budget': curr_user.budget
-    }
 
     return render_template('general/index.html', games_best_seller=games_best_seller, game_hero_section=game_hero_section)
