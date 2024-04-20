@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../../../static/output.css">
     <link rel="stylesheet" href="../../../static/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <title>DG Games</title>
+    <title>Apple GP</title>
   </head>
 
   <body>
@@ -30,9 +30,8 @@
         </div>
         
         <div class="logo-container md:order-first">
-          <a href={{ url_for('general.index') }}>
-            <img src="../../../static/assets/img/logo-DGGames.png" alt="DG Games" class="w-28 md:w-40 lg:w-60">
-            <!-- <img src="../../../static/assets/img/logo.png" alt="DG Games" class="w-28 md:w-40 lg:w-60"> -->
+          <a href={{ url_for('general.index') }} class="inline-block w-28 md:w-40 lg:w-60 text-4xl">
+            Apple GP
           </a>
         </div>
 
@@ -45,7 +44,7 @@
               <a href={{ url_for('products.index') }} class="px-1 pt-8">Products</a>
             </li>
             <li class="nav-item hover:text-primaryColor mx-3 transition-all">
-              <a href='#' class="px-1 pt-8">Contact Us</a>
+              <a href='#footer' class="px-1 pt-8">Contact Us</a>
             </li>
             <li class="nav-item group mx-3 transition-all relative">
               <span class="px-1 pt-8 group-hover:text-primaryColor
@@ -56,13 +55,13 @@
               <ul class="subnav absolute hidden group-hover:block shadow-xl w-44
               top-[120%] -right-8 mt-2 bg-primaryColor rounded-md overflow-hidden">
                 <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-3 pb-2">
-                  <a href="#" class="block w-full">Terms & Conditions</a>
+                  <a href="#footer" class="block w-full">Terms & Conditions</a>
                 </li>
                 <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 py-2">
-                  <a href="#" class="block w-full">Refund Policy</a>
+                  <a href="#footer" class="block w-full">Refund Policy</a>
                 </li>
                 <li class="subnav-item hover:bg-[whitesmoke] hover:text-[#461751] px-2 pt-2 pb-3">
-                  <a href="#" class="block w-full">Support</a>
+                  <a href="#footer" class="block w-full">Support</a>
                 </li>
               </ul>
             </li>
@@ -72,6 +71,7 @@
               {{ session['current_user']['budget'] | currency}}
             </span>
             {% if session['current_user'] %}
+              <!-- <a href= "#" class="user-auth group hidden md:flex items-center mr-6"> -->
               <a href= {{ url_for('auth.register') }} class="user-auth group hidden md:flex items-center mr-6">
                 <i class="fa-solid fa-circle-user text-2xl mr-4"></i>
                 <span class="group-hover:text-primaryColor transition-all px-1 py-8">
@@ -168,10 +168,12 @@
     
     {% endblock content %}
 
-    <footer class="pt-24 px-20 pb-16">
+    <footer id="footer" class="pt-24 px-20 pb-16">
       <div id="footer_nav" class="pb-16 px-28 flex justify-between flex-wrap">
         <a href={{ url_for("general.index") }} class="footer-logo mt-16">
-          <img src="../../../static/assets/img/logo-DGGames.png" alt="DG Games" class="w-56">
+          <!-- <img src="../../../static/assets/img/logo-DGGames.png" alt="DG Games" class="w-56"> -->
+          <!-- <span class="text-4x1">Apple GP</span> -->
+          <span class="inline-block w-56 text-4xl">Apple GP</span>
         </a>
 
         <div class="footer_nav-products">

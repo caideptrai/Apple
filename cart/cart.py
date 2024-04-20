@@ -51,15 +51,11 @@ def cart_add():
     game_id = int(request.form['product_id'])
     curr_user = User.query.filter_by(id=2).first()
     order_exist = Orders.query.filter_by(customer_id=curr_user.id, game_id=game_id).first()
-    # purchase_exist = Purchases.query.filter_by(customer_id=curr_user.id,  game_id=game_id).first()
     if request.method == "POST":
         found = False
         if order_exist:
             found = True
-            flash(f'This game was already in your cart!', category=MessageType['ERROR'].value)
-        # elif purchase_exist:
-        #     found = True
-        #     flash(f'You already bought this game!', category=MessageType['ERROR'].value)
+            flash(f'This product was already in your cart!', category=MessageType['ERROR'].value)
         if not found:
             newOrder = Orders(
                 date_of_order = datetime.now(),
