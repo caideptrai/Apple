@@ -1,40 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Add Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <title>Apple DP - Register</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/output.css" />
+    <title>Apple GP - Register</title>
+    <style>
+        .bg-radial-dark {
+            background: radial-gradient(#252525,#1c1c1c);
+        }
+    </style>
 </head>
 <body>
-  <section class="bg-radial dark:bg-neutral-800 min-h-screen flex items-center justify-center">
-    <div class="py-12 px-8 flex bg-neutral-800 rounded-2xl shadow-lg max-w-md">
-      <form action="{{ url_for('auth.register') }}" method="POST" class="flex flex-col w-full">
-        <h2 class="text-neutral-900 dark:text-neutral-100 font-bold text-3xl mb-5">Sign Up</h2>
-        <div class="mb-4">
-          <label for="username" class="block text-sm text-neutral-900 dark:text-neutral-100 mb-1">Username:</label>
-          <input id="username" class="p-2 w-full rounded-sm border text-black" type="text" name="username" placeholder="Username">
+<section class="bg-radial-dark min-h-screen flex items-center justify-center">
+    <div class="py-32 px-52 flex bg-neutral-900 rounded-2xl shadow-lg max-w-5xl">
+        <div class="w-1/2 flex flex-col justify-center" style="font-size: 40px;">
+            <div class="text-left">
+                Apple GP
+            </div>
         </div>
-        <div class="mb-4">
-          <label for="email" class="block text-sm text-neutral-900 dark:text-neutral-100 mb-1">Email:</label>
-          <input id="email" class="p-2 w-full rounded-sm border text-black" type="text" name="email" placeholder="Email">
+    
+        <div class="w-1/2 items-center">
+            <h2 class="text-neutral-100 font-bold text-3xl mb-2 w-96">Sign Up for Apple GP</h2>
+            <p class="text-sm italic text-neutral-400 mb-4">"We sale whatever you want!"</p>
+            <form action= {{ url_for('auth.register') }} method="POST" class="flex flex-col">
+                <p class="py-2 mt-1 text-sm font-medium text-neutral-100">Username</p>
+                <input class="p-2 w-96 rounded-md border text-black" type="text" name="username" placeholder="Enter your username">
+                <p class="py-2 mt-1 text-sm font-medium text-neutral-100">Email Address</p>
+                <input class="p-2 w-96 rounded-md border text-black" type="text" name="email" placeholder="Enter your email">
+                <p class="py-2 mt-1 text-sm font-medium text-neutral-100">Password</p>
+                <input class="p-2 w-96 rounded-md border text-black" type="password" name="password" placeholder="Enter your password">
+                <p class="py-2 mt-1 text-sm font-medium text-neutral-100">Name</p>
+                <input class="p-2 w-96 rounded-md border text-black" type="text" name="name" placeholder="Enter your name">
+                <p class="py-2 mt-1 text-sm font-medium text-neutral-100">Phone Number</p>
+                <input class="p-2 w-96 rounded-md border text-black" type="text" name="phone_number" placeholder="Enter your phone number">
+                <p class="py-2 mt-1 text-sm font-medium text-neutral-100">Budget</p>
+                <input class="p-2 w-96 rounded-md border text-black" type="text" name="budget" placeholder="Enter your budget">
+                <button type="submit" class="bg-neutral-800 rounded-sm py-2 text-neutral-100 font-medium w-96">Sign Up</button>
+            </form>
+            <div class="mt-5 w-60 grid text-gray-500 items-center">
+                <hr class="border-gray-500 border-solid w-96">
+            </div>
+            {% if error_message %}
+            <div class="text-red-500">{{ error_message }}</div>
+            {% endif %}
         </div>
-        <div class="mb-4">
-          <label for="name" class="block text-sm text-neutral-900 dark:text-neutral-100 mb-1">Name:</label>
-          <input id="name" class="p-2 w-full rounded-sm border text-black" type="text" name="name" placeholder="Name">
-        </div>
-        <div class="mb-4">
-          <label for="password" class="block text-sm text-neutral-900 dark:text-neutral-100 mb-1">Password:</label>
-          <input id="password" class="p-2 w-full rounded-sm border text-black" type="password" name="password" placeholder="Password">
-        </div>
-        <div class="mb-6">
-          <label for="confirm-password" class="block text-sm text-neutral-900 dark:text-neutral-100 mb-1">Confirm Password:</label>
-          <input id="confirm-password" class="p-2 w-full rounded-sm border text-black" type="password" name="confirm-password" placeholder="Confirm Password">
-        </div>
-        <button type="submit" class="bg-neutral-900 dark:bg-neutral-700 w-full rounded-sm py-2 text-neutral-900 dark:text-neutral-100 font-medium">Sign Up</button>
-      </form>
     </div>
-  </section>
+</section>
 </body>
 </html>
